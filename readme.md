@@ -46,7 +46,7 @@ pip install -r requirements.txt
 ## Setting Up the Project
 1. Open the project:
 ```bash
-cd <repository_directory>
+cd MyProject
 ```
 2. Apply database migrations:
 ```bash
@@ -62,7 +62,7 @@ python manage.py runserver
 ```bash
 <directory>/
 |
-|-- repository_directory/         
+|-- MyProject/         
 ├──├── app_name/          # Django app containing ML model logic
 ├──├──├── migrations/     # Database migration files
 ├──├──├── models.py       # Django model definitions
@@ -70,7 +70,7 @@ python manage.py runserver
 ├──├──└── urls.py         # URL routing for the app
 ├──├──├── templates/          # HTML templates for the web interface
 │  ├──├── └── app_name/       # Templates specific to the app
-├──├── Project/           # Django project
+├──├── MyProject/         # Django project
 ├──├── manage.py          # Django's command-line utility
 ├──├── static/            # Static files (CSS, JavaScript, images)
 ├──├── db.sqlite3         # SQLite database file (generated after migrations)
