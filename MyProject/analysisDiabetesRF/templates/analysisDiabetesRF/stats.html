@@ -1,0 +1,46 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Statistics and Graphics</title>
+    </head>
+    <body>
+        <h1>Dataset Statistics</h1>
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>Statistic</th>
+                    {% for column in stats_list.0 %} 
+                    {% if column != 'feature' %}
+                    <th>{{ column }}</th>
+                    <!-- Display statistics like count, mean, etc. -->
+                    {% endif %} 
+                    {% endfor %}
+                </tr>
+            </thead>
+            <tbody>
+                {% for stat in stats_list %}
+                <tr>
+                    <td>{{ stat.feature }}</td>
+                    <!-- Display the feature name like Pregnancies, Glucose, etc. -->
+                    {% for key, value in stat.items %} 
+                    {% if key != 'feature' %}
+                    <td>{{ value }}</td>
+                    <!-- Display the values for each statistic (count, mean, etc.) -->
+                    {% endif %} 
+                    {% endfor %}
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <h2>Confusion Matrix</h2>
+
+        <img src="{% static 'confusion_matrix.png' %}" alt="Confusion Matrix" />
+
+        <h2>Histogram of Glucose Levels</h2>
+        <img src="{% static plot_path %}" alt="Glucose Histogram" />
+    </body>
+</html>
